@@ -1,0 +1,60 @@
+timestamp,topic,payload,retained,alert
+2026-11-17T08:44:02.237,plant1/lineA/status,online,0,
+2026-11-17T08:44:02.294,plant1/lineB/status,online,0,
+2026-11-17T08:44:02.636,plant1/lineA/temperature,68.26,0,
+2026-11-17T08:44:02.695,plant1/lineB/temperature,82.77,0,
+2026-11-17T08:44:02.695,plant1/lineA/vibration,5.98,0,
+2026-11-17T08:44:04.195,plant1/lineA/vibration,6.93,0,
+2026-11-17T08:44:04.636,plant1/lineA/temperature,63.61,0,
+2026-11-17T08:44:05.695,plant1/lineB/temperature,83.77,0,
+2026-11-17T08:44:05.696,plant1/lineA/vibration,7.36,0,ALERT vibration 7.36 > 7.0
+2026-11-17T08:44:06.637,plant1/lineA/temperature,73.86,0,
+2026-11-17T08:44:07.196,plant1/lineA/vibration,8.54,0,ALERT vibration 8.54 > 7.0
+2026-11-17T08:44:08.637,plant1/lineA/temperature,65.42,0,
+2026-11-17T08:44:08.696,plant1/lineB/temperature,71.98,0,
+2026-11-17T08:44:08.696,plant1/lineA/vibration,6.92,0,
+2026-11-17T08:44:10.198,plant1/lineA/vibration,8.38,0,ALERT vibration 8.38 > 7.0
+2026-11-17T08:44:10.638,plant1/lineA/temperature,62.33,0,
+2026-11-17T08:44:11.696,plant1/lineB/temperature,64.16,0,
+2026-11-17T08:44:11.697,plant1/lineA/vibration,1.23,0,
+2026-11-17T08:44:12.638,plant1/lineA/temperature,74.06,0,
+2026-11-17T08:44:13.198,plant1/lineA/vibration,4.72,0,
+2026-11-17T08:44:14.639,plant1/lineA/temperature,92.13,0,ALERT temperature 92.13 > 85.0
+2026-11-17T08:44:14.699,plant1/lineA/vibration,8.55,0,ALERT vibration 8.55 > 7.0
+2026-11-17T08:44:14.701,plant1/lineB/temperature,55.02,0,
+2026-11-17T08:44:16.199,plant1/lineA/vibration,6.19,0,
+2026-11-17T08:44:16.639,plant1/lineA/temperature,88.02,0,ALERT temperature 88.02 > 85.0
+2026-11-17T08:44:16.874,plant1/lineC/status,online,0,
+2026-11-17T08:44:17.275,plant1/lineC/temperature,78.52,0,
+2026-11-17T08:44:17.697,plant1/lineB/temperature,78.2,0,
+2026-11-17T08:44:17.699,plant1/lineA/vibration,8.21,0,ALERT vibration 8.21 > 7.0
+2026-11-17T08:44:18.640,plant1/lineA/temperature,86.78,0,ALERT temperature 86.78 > 85.0
+2026-11-17T08:44:19.201,plant1/lineA/vibration,1.91,0,
+2026-11-17T08:44:19.275,plant1/lineC/temperature,74.93,0,
+2026-11-17T08:44:20.640,plant1/lineA/temperature,67.77,0,
+2026-11-17T08:44:20.698,plant1/lineB/temperature,71.46,0,
+2026-11-17T08:44:20.700,plant1/lineA/vibration,4.75,0,
+2026-11-17T08:44:21.276,plant1/lineC/temperature,65.54,0,
+2026-11-17T08:44:22.200,plant1/lineA/vibration,2.97,0,
+2026-11-17T08:44:22.640,plant1/lineA/temperature,78.78,0,
+2026-11-17T08:44:23.276,plant1/lineC/temperature,94.66,0,ALERT temperature 94.66 > 85.0
+2026-11-17T08:44:23.698,plant1/lineB/temperature,81.59,0,
+2026-11-17T08:44:23.701,plant1/lineA/vibration,5.35,0,
+2026-11-17T08:44:23.802,plant1/lineA/status,offline,0,
+2026-11-17T08:44:25.207,plant1/lineA/vibration,5.59,0,
+2026-11-17T08:44:25.277,plant1/lineC/temperature,60.26,0,
+2026-11-17T08:44:26.699,plant1/lineB/temperature,68.06,0,
+2026-11-17T08:44:26.707,plant1/lineA/vibration,1.1,0,
+2026-11-17T08:44:27.278,plant1/lineC/temperature,80.11,0,
+2026-11-17T08:44:28.208,plant1/lineA/vibration,2.73,0,
+2026-11-17T08:44:29.278,plant1/lineC/temperature,95.93,0,ALERT temperature 95.93 > 85.0
+2026-11-17T08:44:29.699,plant1/lineB/temperature,81.95,0,
+2026-11-17T08:44:29.708,plant1/lineA/vibration,3.24,0,
+2026-11-17T08:44:31.209,plant1/lineA/vibration,8.33,0,ALERT vibration 8.33 > 7.0
+2026-11-17T08:44:31.278,plant1/lineC/temperature,63.23,0,
+2026-11-17T08:44:32.701,plant1/lineB/temperature,64.54,0,
+2026-11-17T08:44:32.709,plant1/lineA/vibration,7.13,0,ALERT vibration 7.13 > 7.0
+2026-11-17T08:44:33.279,plant1/lineC/temperature,82.17,0,
+2026-11-17T08:44:34.210,plant1/lineA/vibration,2.28,0,
+2026-11-17T08:44:34.806,plant1/lineB/status,offline,0,
+2026-11-17T08:44:34.808,plant1/lineC/status,offline,0,

@@ -1,0 +1,9 @@
+[qos 0] t=6s  broker KILLED
+Terminated
+[qos 0] t=10s broker RESTARTED
+QoS 0: received 75/100, lost 25 (first lost #25, last lost #49)
+Terminated
+[qos 1] t=6s  broker KILLED
+Terminated
+[qos 1] t=10s broker RESTARTED
+QoS 1: received 100/100, lost 0 

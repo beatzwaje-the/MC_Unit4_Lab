@@ -1,0 +1,9 @@
+[08:35:57.600] ALERT-SUB connected rc=Success; subscribing factory/+/temperature (qos 1), threshold=90.0
+------ PHASE 1: normal operation (publisher QoS1, 5 s interval) ------
+[08:35:59.606] ok         factory/line3/temperature = 67.9
+[08:36:04.606] ALERT !!! factory/line3/temperature = 93.7 exceeds 90.0
+[08:36:09.606] ok         factory/line3/temperature = 64.4
+[08:36:14.607] ok         factory/line3/temperature = 84.7
+------ PHASE 2: dashboard killed and restarted mid-run (retained-message test) ------
+[08:36:19.607] ok         factory/line3/temperature = 63.0
+------ PHASE 3: publisher hard-killed with SIGKILL (LWT test) ------

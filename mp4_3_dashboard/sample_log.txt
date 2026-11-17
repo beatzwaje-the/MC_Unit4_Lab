@@ -1,0 +1,117 @@
+[08:44:00.737] AGGREGATOR connected rc=Success; single subscription: plant1/+/+ (qos 1)
+
+######## PHASE 1: three publishers on plant1/lineA/temperature, plant1/lineA/vibration, plant1/lineB/temperature (QoS 1, retained)
+[08:44:02.237] STATUS   plant1/lineA/status          online
+[08:44:02.294] STATUS   plant1/lineB/status          online
+[08:44:02.636] NEW TOPIC discovered by wildcard: plant1/lineA/temperature
+[08:44:02.636] reading  plant1/lineA/temperature     68.26
+[08:44:02.695] NEW TOPIC discovered by wildcard: plant1/lineB/temperature
+[08:44:02.695] reading  plant1/lineB/temperature     82.77
+[08:44:02.695] NEW TOPIC discovered by wildcard: plant1/lineA/vibration
+[08:44:02.695] reading  plant1/lineA/vibration       5.98
+[08:44:04.195] reading  plant1/lineA/vibration       6.93
+[08:44:04.636] reading  plant1/lineA/temperature     63.61
+[08:44:05.695] reading  plant1/lineB/temperature     83.77
+[08:44:05.696] ALERT    plant1/lineA/vibration       7.36 exceeds vibration threshold 7.0
+[08:44:06.636] reading  plant1/lineA/temperature     73.86
+[08:44:07.196] ALERT    plant1/lineA/vibration       8.54 exceeds vibration threshold 7.0
+[08:44:08.637] reading  plant1/lineA/temperature     65.42
+[08:44:08.695] reading  plant1/lineB/temperature     71.98
+[08:44:08.696] reading  plant1/lineA/vibration       6.92
+[08:44:09.738] ---- SUMMARY (latest per topic) ----
+           plant1/lineA/temperature     last=65.42   n=4   min=63.61   mean=67.79   max=73.86
+           plant1/lineA/vibration       last=6.92    n=5   min=5.98    mean=7.15    max=8.54
+           plant1/lineB/temperature     last=71.98   n=3   min=71.98   mean=79.51   max=83.77
+           plant1/lineA/status          status=online
+           plant1/lineB/status          status=online
+[08:44:10.198] ALERT    plant1/lineA/vibration       8.38 exceeds vibration threshold 7.0
+[08:44:10.638] reading  plant1/lineA/temperature     62.33
+[08:44:11.696] reading  plant1/lineB/temperature     64.16
+[08:44:11.697] reading  plant1/lineA/vibration       1.23
+[08:44:12.638] reading  plant1/lineA/temperature     74.06
+[08:44:13.198] reading  plant1/lineA/vibration       4.72
+
+######## PHASE 2: late-joining subscriber (retained messages delivered immediately)
+[08:44:14.266] LATE-JOINER connected, subscribing plant1/#
+[08:44:14.266] LATE-JOINER got plant1/lineA/status          online   retain-flag=True
+[08:44:14.266] LATE-JOINER got plant1/lineB/status          online   retain-flag=True
+[08:44:14.266] LATE-JOINER got plant1/lineA/temperature     74.06    retain-flag=True
+[08:44:14.266] LATE-JOINER got plant1/lineB/temperature     64.16    retain-flag=True
+[08:44:14.266] LATE-JOINER got plant1/lineA/vibration       4.72     retain-flag=True
+[08:44:14.266] LATE-JOINER got plant1/lineA/status          online   retain-flag=True
+[08:44:14.266] LATE-JOINER got plant1/lineB/status          online   retain-flag=True
+[08:44:14.267] LATE-JOINER got plant1/lineA/temperature     74.06    retain-flag=True
+[08:44:14.267] LATE-JOINER got plant1/lineB/temperature     64.16    retain-flag=True
+[08:44:14.267] LATE-JOINER got plant1/lineA/vibration       4.72     retain-flag=True
+[08:44:14.639] ALERT    plant1/lineA/temperature     92.13 exceeds temperature threshold 85.0[08:44:14.639] LATE-JOINER got plant1/lineA/temperature     92.13    retain-flag=False
+
+[08:44:14.699] ALERT    plant1/lineA/vibration       8.55 exceeds vibration threshold 7.0
+[08:44:14.699] LATE-JOINER got plant1/lineA/vibration       8.55     retain-flag=False
+[08:44:14.701] reading  plant1/lineB/temperature     55.02
+[08:44:14.701] LATE-JOINER got plant1/lineB/temperature     55.02    retain-flag=False
+[08:44:16.199] reading  plant1/lineA/vibration       6.19
+[08:44:16.639] ALERT    plant1/lineA/temperature     88.02 exceeds temperature threshold 85.0
+
+######## PHASE 3: NEW sensor plant1/lineC/temperature started at run time (aggregator code NOT touched)
+[08:44:16.874] STATUS   plant1/lineC/status          online
+[08:44:17.274] NEW TOPIC discovered by wildcard: plant1/lineC/temperature
+[08:44:17.275] reading  plant1/lineC/temperature     78.52
+[08:44:17.697] reading  plant1/lineB/temperature     78.2
+[08:44:17.699] ALERT    plant1/lineA/vibration       8.21 exceeds vibration threshold 7.0
+[08:44:18.639] ALERT    plant1/lineA/temperature     86.78 exceeds temperature threshold 85.0
+[08:44:18.739] ---- SUMMARY (latest per topic) ----
+           plant1/lineA/temperature     last=86.78   n=9   min=62.33   mean=74.94   max=92.13
+           plant1/lineA/vibration       last=8.21    n=11  min=1.23    mean=6.64    max=8.55
+           plant1/lineB/temperature     last=78.2    n=6   min=55.02   mean=72.65   max=83.77
+           plant1/lineC/temperature     last=78.52   n=1   min=78.52   mean=78.52   max=78.52
+           plant1/lineA/status          status=online
+           plant1/lineB/status          status=online
+           plant1/lineC/status          status=online
+[08:44:19.200] reading  plant1/lineA/vibration       1.91
+[08:44:19.275] reading  plant1/lineC/temperature     74.93
+[08:44:20.640] reading  plant1/lineA/temperature     67.77
+[08:44:20.698] reading  plant1/lineB/temperature     71.46
+[08:44:20.700] reading  plant1/lineA/vibration       4.75
+[08:44:21.276] reading  plant1/lineC/temperature     65.54
+[08:44:22.200] reading  plant1/lineA/vibration       2.97
+[08:44:22.640] reading  plant1/lineA/temperature     78.78
+[08:44:23.276] ALERT    plant1/lineC/temperature     94.66 exceeds temperature threshold 85.0
+[08:44:23.698] reading  plant1/lineB/temperature     81.59
+[08:44:23.701] reading  plant1/lineA/vibration       5.35
+
+######## PHASE 4: ungraceful termination (kill -9) of plant1/lineA/temperature publisher -> broker publishes LWT
+[08:44:23.799] kill -9 lineA temperature publisher (pid 696)
+[08:44:23.801] STATUS   plant1/lineA/status          offline
+[08:44:25.207] reading  plant1/lineA/vibration       5.59
+[08:44:25.277] reading  plant1/lineC/temperature     60.26
+[08:44:26.699] reading  plant1/lineB/temperature     68.06
+[08:44:26.707] reading  plant1/lineA/vibration       1.1
+[08:44:27.278] reading  plant1/lineC/temperature     80.11
+[08:44:27.739] ---- SUMMARY (latest per topic) ----
+           plant1/lineA/temperature     last=78.78   n=11  min=62.33   mean=74.64   max=92.13
+           plant1/lineA/vibration       last=1.1     n=17  min=1.1     mean=5.57    max=8.55
+           plant1/lineB/temperature     last=68.06   n=9   min=55.02   mean=73.00   max=83.77
+           plant1/lineC/temperature     last=80.11   n=6   min=60.26   mean=75.67   max=94.66
+           plant1/lineA/status          status=offline
+           plant1/lineB/status          status=online
+           plant1/lineC/status          status=online
+[08:44:28.208] reading  plant1/lineA/vibration       2.73
+[08:44:29.278] ALERT    plant1/lineC/temperature     95.93 exceeds temperature threshold 85.0
+[08:44:29.699] reading  plant1/lineB/temperature     81.95
+[08:44:29.708] reading  plant1/lineA/vibration       3.24
+[08:44:31.209] ALERT    plant1/lineA/vibration       8.33 exceeds vibration threshold 7.0
+[08:44:31.278] reading  plant1/lineC/temperature     63.23
+[08:44:32.700] reading  plant1/lineB/temperature     64.54
+[08:44:32.709] ALERT    plant1/lineA/vibration       7.13 exceeds vibration threshold 7.0
+[08:44:33.279] reading  plant1/lineC/temperature     82.17
+[08:44:34.210] reading  plant1/lineA/vibration       2.28
+[08:44:34.806] STATUS   plant1/lineB/status          offline
+[08:44:34.808] STATUS   plant1/lineC/status          offline
+[08:44:35.304] ---- SUMMARY (latest per topic) ----
+           plant1/lineA/temperature     last=78.78   n=11  min=62.33   mean=74.64   max=92.13
+           plant1/lineA/vibration       last=2.28    n=22  min=1.1     mean=5.38    max=8.55
+           plant1/lineB/temperature     last=64.54   n=11  min=55.02   mean=73.05   max=83.77
+           plant1/lineC/temperature     last=82.17   n=9   min=60.26   mean=77.26   max=95.93
+           plant1/lineA/status          status=offline
+           plant1/lineB/status          status=offline
+           plant1/lineC/status          status=offline

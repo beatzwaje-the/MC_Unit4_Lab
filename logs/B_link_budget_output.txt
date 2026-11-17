@@ -1,0 +1,60 @@
+==============================================================================
+MP 4.1 PART B - assigned scenario: 200-sensor farm, 8 km, 5-year battery
+==============================================================================
+Path loss  PL(8 km) = 91.5 + 10*3.5*log10(8.0/1.0) = 123.11 dB
+Cycles per year = 17,520 (one every 30 min); battery = 19,000 mAh
+
+Technology      Tx dBm  Sens dBm  MCL dB  Margin dB  mAh/cycle  mAh/year  Life (yr)  Cov>=10dB  Life>=5y
+--------------  ------  --------  ------  ---------  ---------  --------  ---------  ---------  --------
+NB-IoT              23      -129     152      +28.9     0.2054     3,598        5.3       PASS      PASS
+LTE-M (CE-B)        23      -125     148      +24.9     0.3123     5,472        3.5       PASS      FAIL
+LoRaWAN (SF12)      14      -137     151      +27.9     0.0205       360       52.8       PASS      PASS
+5G RedCap           23      -110     133       +9.9     0.2402     4,209        4.5       FAIL      FAIL
+
+Notes: LoRaWAN life exceeds the cell's realistic shelf life (~10-15 y); treat >15 y as 'battery-limited by chemistry'.
+  NB-IoT           repetition-based coverage enhancement, PSM sleep
+  LTE-M (CE-B)     CE Mode B repetitions, higher TX current
+  LoRaWAN (SF12)   SF12/125 kHz, 25 B PHY payload, airtime 1.483 s
+  5G RedCap        ASSUMED: 20 MHz-class NR, reduced-capability UE, no deep-coverage repetitions
+
+LoRaWAN capacity check: offered load G = 200 x 1.483 s / 1800 s = 0.165 Erlang (duty cycle 0.082 % per node, limit 1 %)
+  pure-ALOHA success per uplink on ONE channel/SF: exp(-2G) = 0.72; with 8 channels: exp(-2G/8) = 0.960
+Geometry: 25 km^2 circular footprint has radius 2.82 km; one central gateway covers it, 8 km is the worst-case (corner/off-centre) distance.
+
+==============================================================================
+LAB TASK 4 - fleet-tracked shipping container, ocean crossing (no terrestrial coverage)
+==============================================================================
+Margin (dB) = MCL - PL(d), n = 3.5, as a function of distance to the nearest base station/gateway:
+Technology      1 km  5 km  8 km  20 km  50 km  100 km  300 km  1000 km  max range
+--------------  ----  ----  ----  -----  -----  ------  ------  -------  ---------
+NB-IoT           +60   +36   +29    +15     +1     -10     -26      -44      54 km
+LTE-M (CE-B)     +56   +32   +25    +11     -3     -14     -30      -48      41 km
+LoRaWAN (SF12)   +60   +35   +28    +14     +0     -10     -27      -46      50 km
+5G RedCap        +42   +17   +10     -4    -18     -28     -45      -64      15 km
+
+Every technology goes negative beyond ~40-55 km: mid-ocean there is NO gateway/base station within range,
+so the margin at a single distance is not the deciding variable. The decision depends on availability
+(coverage along the whole route: ports + satellite/NTN), roaming/handover, and time-varying visibility.
+
+==============================================================================
+LAB TASK 6 - sensitivity to path-loss exponent n (8 km)
+==============================================================================
+Technology      n=2.5  n=3.0  n=3.5  n=4.0  n=4.5  n_crit(0 dB)  n_crit(10 dB)
+--------------  -----  -----  -----  -----  -----  ------------  -------------
+NB-IoT          +37.9  +33.4  +28.9  +24.4  +19.9          6.70           5.59
+LTE-M (CE-B)    +33.9  +29.4  +24.9  +20.4  +15.9          6.26           5.15
+LoRaWAN (SF12)  +36.9  +32.4  +27.9  +23.4  +18.9          6.59           5.48
+5G RedCap       +18.9  +14.4   +9.9   +5.4   +0.9          4.60           3.49
+
+Path loss at 8 km: n=2.5: 114.1 dB, n=3.0: 118.6 dB, n=3.5: 123.1 dB, n=4.0: 127.6 dB, n=4.5: 132.1 dB
+Battery life does not depend on n in this simple model (no power control / extra repetitions modelled),
+so the ranking by battery life is unchanged for all n; only the coverage column moves.
+
+==============================================================================
+RECOMMENDATION
+==============================================================================
+LoRaWAN (SF12) with one privately owned gateway.
+  * Link: MCL 151 dB (1 dB below NB-IoT), +27.9 dB margin at 8 km, still +18.9 dB at n = 4.5.
+  * Battery: ~0.02 mAh/cycle -> decades on 19 Ah, versus ~5 y (NB-IoT, marginal) and ~3.5 y (LTE-M, fails).
+  * Section 4.3 axes: no cellular coverage nearby rules out carrier-based NB-IoT/LTE-M/RedCap regardless of
+    margin; own gateway = no per-device subscription at 200 units; low data rate and stationary nodes suit LoRa.

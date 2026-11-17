@@ -1,0 +1,10 @@
+[08:44:16.874] node-plant1-lineC-temperature connected rc=Success (LWT on plant1/lineC/status)
+[08:44:17.274] plant1/lineC/temperature = 78.52
+[08:44:19.274] plant1/lineC/temperature = 74.93
+[08:44:21.275] plant1/lineC/temperature = 65.54
+[08:44:23.275] plant1/lineC/temperature = 94.66
+[08:44:25.276] plant1/lineC/temperature = 60.26
+[08:44:27.276] plant1/lineC/temperature = 80.11
+[08:44:29.277] plant1/lineC/temperature = 95.93
+[08:44:31.278] plant1/lineC/temperature = 63.23
+[08:44:33.278] plant1/lineC/temperature = 82.17

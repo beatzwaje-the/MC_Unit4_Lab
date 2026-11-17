@@ -1,0 +1,9 @@
+------ PHASE 1: normal operation (publisher QoS1, 5 s interval) ------
+------ PHASE 2: dashboard killed and restarted mid-run (retained-message test) ------
+[08:36:17.589] DASHBOARD connected rc=Success; subscribing ['factory/line3/temperature', 'factory/line3/status']
+[08:36:17.589] DASHBOARD RETAINED factory/line3/temperature    84.7     (qos=0)
+[08:36:17.590] DASHBOARD RETAINED factory/line3/temperature    84.7     (qos=1)
+[08:36:17.590] DASHBOARD RETAINED factory/line3/status         online   (qos=1)
+[08:36:19.607] DASHBOARD live     factory/line3/temperature    63.0     (qos=1)
+------ PHASE 3: publisher hard-killed with SIGKILL (LWT test) ------
+[08:36:23.527] DASHBOARD live     factory/line3/status         offline  (qos=1)

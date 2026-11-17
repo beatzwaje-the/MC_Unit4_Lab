@@ -1,0 +1,3 @@
+paho-mqtt>=2.0
+numpy
+amqtt   # only needed for the local pure-Python broker (not needed if Mosquitto is installed)

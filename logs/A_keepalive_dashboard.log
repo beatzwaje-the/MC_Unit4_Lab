@@ -1,0 +1,8 @@
+[08:44:49.723] DASHBOARD connected rc=Success; subscribing ['factory/line3/temperature', 'factory/line3/status']
+[08:44:50.727] DASHBOARD live     factory/line3/status         online   (qos=1)
+[08:44:51.227] DASHBOARD live     factory/line3/temperature    64.7     (qos=1)
+[08:44:53.228] DASHBOARD live     factory/line3/temperature    89.7     (qos=1)
+[08:44:55.228] DASHBOARD live     factory/line3/temperature    86.7     (qos=1)
+[08:45:02.730] DASHBOARD live     factory/line3/status         offline  (qos=1)
+ve=5 s)
+LWT arrived 7.6 s after the freeze (keep-alive = 5 s)

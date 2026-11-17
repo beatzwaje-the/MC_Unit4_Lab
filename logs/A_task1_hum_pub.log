@@ -1,0 +1,7 @@
+[08:37:49.883] CONNECTED to 127.0.0.1:1883 rc=Success client_id=line3-humidity-sensor
+[08:37:49.883] STATUS  factory/line3/humidity-status <- online (retain)
+[08:37:50.379] PUBLISH #1   factory/line3/humidity = 39.5 (qos=1, retain=True, mid=2)
+[08:37:53.380] PUBLISH #2   factory/line3/humidity = 51.8 (qos=1, retain=True, mid=3)
+[08:37:56.381] PUBLISH #3   factory/line3/humidity = 44.8 (qos=1, retain=True, mid=4)
+[08:37:59.381] PUBLISH #4   factory/line3/humidity = 54.2 (qos=1, retain=True, mid=5)
+[08:38:02.382] PUBLISH #5   factory/line3/humidity = 55.0 (qos=1, retain=True, mid=6)

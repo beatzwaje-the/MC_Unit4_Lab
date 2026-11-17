@@ -1,0 +1,59 @@
+====================================================================================================
+SCENARIO: Smart water meter
+  inputs: rate=0.4 bps (level 1), coverage=deep_indoor, battery=12 y (level 5), mobility=stationary, ownership=carrier, devices=20,000, budget=tight (cost level 5)
+#  Technology                  Score    data_  cover  batte  mobil  owner   cost  Justification
+1  NB-IoT                       90.2      4.7    5.0    3.5    5.0    5.0    3.5  Strong on coverage (5.0), mobility (5.0), data rate (4.7).
+2  LoRaWAN                      87.5      5.0    4.0    5.0    5.0    2.0    5.0  Strong on data rate (5.0), battery (5.0), mobility (5.0); held back by ownership (2.0).
+3  LTE-M                        75.5      4.4    4.0    2.0    5.0    5.0    2.0  Strong on mobility (5.0), ownership (5.0); held back by cost (2.0), battery (2.0).
+4  Short-range (BLE/Zigbee)     73.0      4.4    3.0    3.5    5.0    1.0    5.0  Strong on mobility (5.0), cost (5.0); held back by ownership (1.0), coverage (3.0).
+5  5G RedCap                    54.8      3.8    2.0    0.5    5.0    5.0    0.5  Strong on mobility (5.0), ownership (5.0); held back by cost (0.5), battery (0.5).
+  expected pick: NB-IoT | tool pick: NB-IoT | MATCH
+====================================================================================================
+SCENARIO: Fleet-tracked shipping container
+  inputs: rate=1.3 bps (level 1), coverage=wide_area_cellular, battery=4 y (level 3), mobility=global_roaming, ownership=carrier, devices=2,000, budget=moderate (cost level 3)
+#  Technology                  Score    data_  cover  batte  mobil  owner   cost  Justification
+1  LTE-M                        94.7      4.4    5.0    5.0    4.0    5.0    5.0  Strong on coverage (5.0), battery (5.0), ownership (5.0).
+2  5G RedCap                    83.9      3.8    5.0    3.5    4.0    5.0    3.5  Strong on coverage (5.0), ownership (5.0).
+3  NB-IoT                       82.2      4.7    4.0    4.7    2.0    5.0    4.7  Strong on data rate (4.7), battery (4.7), ownership (5.0); held back by mobility (2.0).
+4  LoRaWAN                      35.7      5.0    3.0    4.4    1.0    2.0    4.4  Strong on data rate (5.0); held back by mobility (1.0), ownership (2.0). R1 -1.5 applied.
+                                          -> R1 -1.5: LoRaWAN has no cellular-style handover/roaming for wide-area mobility
+5  Short-range (BLE/Zigbee)     23.8      4.4    0.0    4.7    0.0    1.0    4.4  Strong on battery (4.7); held back by coverage (0.0), mobility (0.0). R4 -1.0 applied.
+                                          -> R4 -1.0: short-range links need a gateway/backhaul to reach a wide-area service
+  expected pick: LTE-M | tool pick: LTE-M | MATCH
+====================================================================================================
+SCENARIO: Factory-floor sensor network
+  inputs: rate=40.0 bps (level 1), coverage=deep_indoor, battery=5 y (level 3), mobility=stationary, ownership=self, devices=500, budget=moderate (cost level 3)
+#  Technology                  Score    data_  cover  batte  mobil  owner   cost  Justification
+1  LoRaWAN                      91.5      5.0    4.0    4.4    5.0    5.0    4.4  Strong on data rate (5.0), mobility (5.0), ownership (5.0).
+2  Short-range (BLE/Zigbee)     85.5      4.4    3.0    4.7    5.0    5.0    4.4  Strong on mobility (5.0), battery (4.7), ownership (5.0); held back by coverage (3.0).
+3  NB-IoT                       54.8      4.7    5.0    4.7    5.0    0.0    4.7  Strong on coverage (5.0), mobility (5.0), data rate (4.7); held back by ownership (0.0). R3 -1.5 applied.
+                                          -> R3 -1.5: operator-only technology cannot satisfy a self-owned requirement
+4  LTE-M                        50.5      4.4    4.0    5.0    5.0    0.0    5.0  Strong on battery (5.0), mobility (5.0), cost (5.0); held back by ownership (0.0). R3 -1.5 applied.
+                                          -> R3 -1.5: operator-only technology cannot satisfy a self-owned requirement
+5  5G RedCap                    32.3      3.8    2.0    3.5    5.0    1.0    3.5  Strong on mobility (5.0); held back by ownership (1.0), coverage (2.0). R3 -1.5 applied.
+                                          -> R3 -1.5: operator-only technology cannot satisfy a self-owned requirement
+  expected pick: LoRaWAN | tool pick: LoRaWAN | MATCH
+====================================================================================================
+SCENARIO: Wearable health monitor
+  inputs: rate=30,000.0 bps (level 2), coverage=short_range_only, battery=0.1 y (level 1), mobility=local, ownership=either, devices=50,000, budget=tight (cost level 5)
+#  Technology                  Score    data_  cover  batte  mobil  owner   cost  Justification
+1  Short-range (BLE/Zigbee)     89.3      4.7    5.0    4.1    3.0    5.0    5.0  Strong on coverage (5.0), data rate (4.7), ownership (5.0); held back by mobility (3.0).
+2  NB-IoT                       69.9      5.0    1.0    4.1    4.0    5.0    3.5  Strong on data rate (5.0), ownership (5.0); held back by coverage (1.0).
+3  LTE-M                        69.5      4.7    1.0    4.4    5.0    5.0    2.0  Strong on mobility (5.0), data rate (4.7), ownership (5.0); held back by coverage (1.0), cost (2.0).
+4  LoRaWAN                      69.3      3.5    2.0    3.8    3.0    5.0    5.0  Strong on ownership (5.0), cost (5.0); held back by coverage (2.0), mobility (3.0).
+5  5G RedCap                    64.8      4.1    1.0    4.7    5.0    5.0    0.5  Strong on mobility (5.0), battery (4.7), ownership (5.0); held back by cost (0.5), coverage (1.0).
+  expected pick: Short-range (BLE/Zigbee) | tool pick: Short-range (BLE/Zigbee) | MATCH
+====================================================================================================
+SCENARIO: NEW: security-guard body cameras (HD uplink)
+  inputs: rate=4,000,000.0 bps (level 4), coverage=wide_area_cellular, battery=0.04 y (level 1), mobility=wide_area, ownership=carrier, devices=200, budget=generous (cost level 1)
+#  Technology                  Score    data_  cover  batte  mobil  owner   cost  Justification
+1  5G RedCap                    97.2      4.7    5.0    4.7    5.0    5.0    4.7  Strong on coverage (5.0), mobility (5.0), data rate (4.7).
+2  LTE-M                        88.2      3.5    5.0    4.4    4.0    5.0    4.4  Strong on coverage (5.0), ownership (5.0).
+3  NB-IoT                       49.8      2.0    4.0    4.1    2.0    5.0    4.1  Strong on ownership (5.0); held back by data rate (2.0), mobility (2.0). R5 -1.0 applied.
+                                          -> R5 -1.0: sustained >1 Mbps is beyond this LPWAN class
+4  Short-range (BLE/Zigbee)     17.3      3.5    0.0    4.1    0.0    1.0    3.8  Held back by coverage (0.0), mobility (0.0). R4 -1.0 applied.
+                                          -> R4 -1.0: short-range links need a gateway/backhaul to reach a wide-area service
+5  LoRaWAN                       0.0      0.5    3.0    3.8    1.0    2.0    3.8  Held back by data rate (0.5), mobility (1.0). R1 -1.5 R5 -1.0 applied.
+                                          -> R1 -1.5: LoRaWAN has no cellular-style handover/roaming for wide-area mobility
+                                          -> R5 -1.0: sustained >1 Mbps is beyond this LPWAN class
+  expected pick: 5G RedCap | tool pick: 5G RedCap | MATCH

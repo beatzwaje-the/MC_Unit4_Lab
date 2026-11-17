@@ -1,0 +1,7 @@
+[08:37:49.886] CONNECTED to 127.0.0.1:1883 rc=Success client_id=line3-temp-sensor
+[08:37:49.886] STATUS  factory/line3/status <- online (retain)
+[08:37:50.386] PUBLISH #1   factory/line3/temperature = 67.9 (qos=1, retain=True, mid=2)
+[08:37:53.387] PUBLISH #2   factory/line3/temperature = 93.7 (qos=1, retain=True, mid=3)
+[08:37:56.387] PUBLISH #3   factory/line3/temperature = 64.4 (qos=1, retain=True, mid=4)
+[08:37:59.387] PUBLISH #4   factory/line3/temperature = 84.7 (qos=1, retain=True, mid=5)
+[08:38:02.388] PUBLISH #5   factory/line3/temperature = 63.0 (qos=1, retain=True, mid=6)

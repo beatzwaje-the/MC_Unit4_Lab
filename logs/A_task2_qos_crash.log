@@ -1,0 +1,7 @@
+QoS crash delay  trials  received  lost  duplicates
+0   0 ms         10      2         8     0
+1   0 ms         10      6         4     0
+2   0 ms         10      0         10    0
+0   30 ms        10      10        0     0
+1   30 ms        10      10        0     0
+2   30 ms        10      10        0     0
